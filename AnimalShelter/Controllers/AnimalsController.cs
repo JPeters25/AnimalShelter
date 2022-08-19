@@ -9,7 +9,7 @@ using AnimalShelter.Models;
 
 namespace AnimalShelter.Controllers
 {
-  [Route("api/[cntroller]")]
+  [Route("api/[controller]")]
   [ApiController]
   public class AnimalsController : ControllerBase
   {
@@ -80,7 +80,7 @@ namespace AnimalShelter.Controllers
       {
         await _db.SaveChangesAsync();
       }
-      catch (DbUpateConcurrencyException)
+      catch (DbUpdateConcurrencyException)
       {
         if (!AnimalExists(id))
         {
@@ -103,7 +103,7 @@ namespace AnimalShelter.Controllers
       return CreatedAtAction(nameof(GetAnimal), new { id = animal.AnimalId }, animal);
     }
 
-    [HttDelete("{id}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAnimal(int id)
     {
       var animal = await _db.Animals.FindAsync(id);

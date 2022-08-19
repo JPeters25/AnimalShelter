@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace AnimalShelter.Model
+namespace AnimalShelter.Models
 {
   public class AnimalShelterContext : DbContext
   {
@@ -9,7 +9,7 @@ namespace AnimalShelter.Model
       { 
       }
 
-      protected override void ONMOdelCreating(ModelBuilder builder)
+      protected override void OnModelCreating(ModelBuilder builder)
       {
         builder.Entity<Animal>()
         .HasData(
@@ -25,8 +25,10 @@ namespace AnimalShelter.Model
           new Animal { AnimalId = 10, Name = "Charlie", Species = "Dog", Age = 8, Gender = "Male", Breed = "Bulldog"},
           new Animal { AnimalId = 11, Name = "Linus", Species = "Dog", Age = 2, Gender = "Male", Breed = "Golden Doodle"},
           new Animal { AnimalId = 12, Name = "Boots", Species = "Cat", Age = 4, Gender = "Male", Breed = "Munchkin"},
-          new Animal { AnimalId = 13, Name = "Cooper", Species = "Dog", Age = 2, Gender = "Male", Breed = "Daschund"}
-        )
+          new Animal { AnimalId = 13, Name = "Maire", Species = "Cat", Age = 3, Gender = "Female", Breed = "Persian"}
+        );
       }
+
+      public DbSet<Animal> Animals { get; set; }
   }
 }

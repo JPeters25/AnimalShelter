@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "JurrasicPark": {
+    "AnimalShelter": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
